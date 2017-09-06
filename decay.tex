@@ -1,0 +1,1089 @@
+% ------------------------------------------------------------------------
+% AMS-LaTeX Paper
+% ------------------------------------------------------------------------
+% Submitted:      Trans.Amer.Math.Soc. in February 1995
+% Final Version:  July 1995
+% Accepted:       June 1995
+% ------------------------------------------------------------------------
+% This is my doc
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[10pt]{article}
+\usepackage[centertags]{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{newlfont}
+\usepackage[T1]{fontenc}
+\usepackage[ansinew]{inputenc}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage[colorlinks]{hyperref}
+
+% Over-full v-boxes on even pages are due to the \v{c} in author's name
+\vfuzz2pt % Don't report over-full v-boxes if over-edge is small
+
+% THEOREM Environments ---------------------------------------------------
+ \newtheorem{thm}{Theorem}[subsection]
+ \newtheorem{cor}[thm]{Corollario}
+ \newtheorem{lem}[thm]{Lemma}
+ \newtheorem{prop}[thm]{Proposizione}
+ \theoremstyle{definition}
+ \newtheorem{defn}[thm]{Definizione}
+ \theoremstyle{remark}
+ \newtheorem{rem}[thm]{Oss.}
+ \numberwithin{equation}{subsection}
+% MATH -------------------------------------------------------------------
+ \DeclareMathOperator{\RE}{Re}
+ \DeclareMathOperator{\IM}{Im}
+ \DeclareMathOperator{\ess}{ess}
+ \newcommand{\eps}{\varepsilon}
+ \newcommand{\To}{\longrightarrow}
+ \newcommand{\s}{\mathcal{S}}
+ \newcommand{\A}{\mathcal{A}}
+ \newcommand{\E}{\mathcal{E}}
+ \newcommand{\h}{\mathcal{H}}
+ \newcommand{\M}{\mathcal{M}}
+ \newcommand{\W}{\mathcal{W}}
+ \newcommand{\X}{\mathcal{X}}
+ \newcommand{\Y}{\mathcal{Y}}
+ \newcommand{\Z}{\mathcal{Z}}
+ \newcommand{\C}{\mathcal{C}}
+ \newcommand{\BOP}{\mathbf{B}}
+ \newcommand{\BH}{\mathbf{B}(\mathcal{H})}
+ \newcommand{\KH}{\mathcal{K}(\mathcal{H})}
+ \newcommand{\Real}{\mathbb{R}}
+ \newcommand{\Complex}{\mathbb{C}}
+ \newcommand{\Field}{\mathbb{F}}
+ \newcommand{\RPlus}{\Real^{+}}
+ \newcommand{\Polar}{\mathcal{P}_{\s}}
+ \newcommand{\Poly}{\mathcal{P}(E)}
+ \newcommand{\EssD}{\mathcal{D}}
+ \newcommand{\Lom}{\mathcal{L}}
+ \newcommand{\States}{\mathcal{T}}
+ \newcommand{\abs}[1]{\left\vert#1\right\vert}
+ \newcommand{\set}[1]{\left\{#1\right\}}
+ \newcommand{\seq}[1]{\left<#1\right>}
+ \newcommand{\norm}[1]{\left\Vert#1\right\Vert}
+ \newcommand{\essnorm}[1]{\norm{#1}_{\ess}}
+
+%%% ----------------------------------------------------------------------
+\begin{document}
+
+%\subjclass{Primary 47A15; Secondary 46A32, 47D20}
+%\keywords{...}
+%\dedicatory{}
+%\commby{Daniel J. Rudolph}
+\title{Simple model of atomic decay}
+\author{Gabriele Filosofi}
+\date{May 2006}
+
+%%% ----------------------------------------------------------------------
+\maketitle
+
+%%% ----------------------------------------------------------------------
+\begin{abstract}
+Firstly a simplified model of atomic decay is introduced. Then we
+make some investigation about the free and forced response of a
+related differential system.
+\end{abstract}
+
+%%% ----------------------------------------------------------------------
+\section{Introduction}
+\smallskip
+
+%Consideriamo il seguente modello semplificato di "decadimento
+%atomico". Il modello prevede la catena di $N=3$ elementi $X_k$
+%($k=1\dots N$), dove $X_1$ è l'elemento capostipite della catena
+%(quello con massimo numero di massa) e $X_i$ decade in $X_{i+1}$
+%con costante di tempo $\tau_i=\frac{1}{r_i}>0$. $x_i$ sia la
+%quantità di atomi del tipo $X_i$. Nell'approssimazione di modello
+%continuo $x_i$ è una funzione continua del tempo. Inizialmente
+%ipotizziamo una quantità $x_0>0$ dell'elemento $X_0$, mentre
+%$x_2(0)=x_3(0)=0$. Il sistema risolvente è formato da 3 equazioni
+%differenziali ordinarie del primo ordine lineari omogenee
+
+Let's consider a simplified first order linear model for atomic
+decay. It is composed of $N$ different kind of atomic elements,
+$X_i$ (always $i=1\dots N$), where $X_1$ is the top element of the
+chain (that with the greatest mass number) and $X_i$ decays to
+$X_{i+1}$ with time constant $\tau_i=\frac{1}{r_i}>0$. Let $x_i(t)$
+be the number of type $X_i$ atoms at a given time. In the continous
+approximation of the model $x_i$ is a continous function of time.
+
+
+\section{Three atoms model}
+\smallskip
+
+Let's assume $N=3$ and an initial number $x_i^0>0$ of type $X_i$
+atoms. The solving system is made up by three first order
+homogeneous ordinary differential equations
+
+\bigskip
+\[
+\left\{\begin{array}{l}
+\dot{x}_1=-r_1x_1\\
+\dot{x}_2=r_1x_1-r_2x_2\\
+\dot{x}_3=r_2x_2\\
+\end{array}\right.
+\]
+
+or, with obvious notation,
+
+\begin{equation}\label{e:eq00}
+\dot{\vec{x}}(t)=A\vec{x}(t) \quad\quad t>0; \quad\quad \vec{x}(0)=\vec{x}_0 \\
+\end{equation}
+
+with
+
+\[
+A\equiv\left(\begin{array}{ccc}
+-r_1 & 0 & 0 \\
+r_1 & -r_2 & 0\\
+0 & r_2 & 0 \end{array}\right) \quad\quad
+\vec{x}_0\equiv\left(\begin{array}{c}
+x_1^0\\x_2^0\\x_3^0\end{array}\right)
+\]
+\bigskip
+
+The matrix $A$ is singular. Having all zero elements above the
+principal diagonal its eigenvalues can be read immediately along the
+diagonal, $\lambda_1=-r_1$, $\lambda_2=-r_2$ and $\lambda_3=0$. They
+are all real and distinct numbers. The general solution is
+
+\begin{equation}\label{e:eq01}
+\vec{x}(t)=C_1e^{-r_1t}\vec{\eta}^{(1)}+C_2e^{-r_2t}\vec{\eta}^{(2)}+C_3\vec{\eta}^{(3)}\\
+\end{equation}
+
+We have to determine the eigenvectors $\vec{\eta}^{(i)}$ by solving
+$(A-\lambda_iI)\vec{\eta}^{(i)}=0$, and find the constants $C_i$ by
+imposing the initial conditions.
+\goodbreak For eigenvalue $\lambda_1=-r_1$ we have
+
+\bigskip
+\[
+\left(\begin{array}{ccc}
+0 & 0 & 0 \\
+r_1 & r_1-r_2 & 0\\
+0 & r_2 & r_1 \end{array}\right) \left(\begin{array}{c}
+\eta_1^{(1)}\\
+\eta_2^{(1)}\\
+\eta_3^{(1)}\end{array}\right) = \vec{0}\quad\quad\Rightarrow
+\vec{\eta}^{(1)} = \left(\begin{array}{c}
+\tfrac{r_2}{r_1}-1\\1\\-\tfrac{r_2}{r_1}\end{array}\right)
+\]
+
+\goodbreak For eigenvalue $\lambda_2=-r_2$
+
+\bigskip
+\[
+\left(\begin{array}{ccc}
+r_2-r_1 & 0 & 0 \\
+r_1 & 0 & 0\\
+0 & r_2 & r_2 \end{array}\right) \left(\begin{array}{c}
+\eta_1^{(2)}\\
+\eta_2^{(2)}\\
+\eta_3^{(2)}\end{array}\right) = \vec{0}\quad\quad\Rightarrow
+\vec{\eta}^{(2)} = \left(\begin{array}{c}
+0\\-1\\1\end{array}\right)
+\]
+
+\goodbreak For eigenvalue $\lambda_3=0$
+
+\bigskip
+\[
+\left(\begin{array}{ccc}
+-r_1 & 0 & 0 \\
+r_1 & -r_2 & 0\\
+0 & r_2 & 0 \end{array}\right) \left(\begin{array}{c}
+\eta_1^{(3)}\\
+\eta_2^{(3)}\\
+\eta_3^{(3)}\end{array}\right) = \vec{0}\quad\quad\Rightarrow
+\vec{\eta}^{(3)} = \left(\begin{array}{c}
+0\\0\\1\end{array}\right)
+\]
+\bigskip
+
+From the initial conditions
+
+\bigskip
+\[
+C_1\left(\begin{array}{c}
+\tfrac{r_2}{r_1}-1\\1\\-\tfrac{r_2}{r_1}\end{array}\right)
+ + C_2\left(\begin{array}{c}
+0\\-1\\1\end{array}\right)
+ + C_3\left(\begin{array}{c}
+0\\0\\1\end{array}\right) = \left( \begin{array}{c}
+x_1^0\\x_2^0\\x_3^0\end{array}\right)
+\]
+\bigskip
+
+we find $C_1=\frac{x_1^0r_1}{r_2-r_1}$,
+$C_2=\frac{x_1^0r_1}{r_2-r_1}-x_2^0$, $C_3=x_1^0+x_2^0+x_3^0$.
+\goodbreak Thus, the solution is
+
+\bigskip
+\[
+\left\{\begin{array}{l}
+x_1(t)=x_1^0e^{-r_1t}\\\\
+x_2(t)=\frac{x_1^0r_1}{r_2-r_1}e^{-r_1t}+(x_2^0-\frac{x_1^0r_1}{r_2-r_1})e^{-r_2t}\\\\
+x_3(t)=x_1^0+x_2^0+x_3^0-\frac{x_1^0r_1}{r_2-r_1}e^{-r_1t}-(x_2^0-\frac{x_1^0r_1}{r_2-r_1})e^{-r_2t}\\
+\end{array}\right.
+\]
+\bigskip
+
+The picture shows how all these quantities vary with time, having
+$\vec{x}_0=(x_0,0,0); \tau_1=300; \tau_2=1200$.
+
+\begin{figure}[h]\label{fig:fig1}
+ \begin{center}
+   \includegraphics[width=3in]{fig1}\\
+ \end{center}
+ \caption{Simplified model of atomic decay - System component's time evolution ($\tau_1=300; \tau_2=1200$).}
+\end{figure}
+
+\newpage
+\section{Digression about closed chains - homogeneous}
+\smallskip
+
+In the atomic decay model discussed above, the mass flows from
+$x_1$ through $x_N$ and stay there indefinitely. Now, with a
+little modification we make the chain cyclic
+
+\bigskip
+\[
+\left\{\begin{array}{l}
+\dot{x}_1=r_3x_3-r_1x_1\\
+\dot{x}_2=r_1x_1-r_2x_2\\
+\dot{x}_3=r_2x_2-r_3x_3\\
+\end{array}\right.
+\]
+
+i.e. "mass" can go back to $x_1$ trough the rate $r_3$. In matrix
+notation,
+
+\begin{equation}\label{e:eq02}
+\dot{\vec{x}}(t)=A\vec{x}(t) \quad\quad t>0; \quad\quad \vec{x}(0)=\vec{x}_0 \\
+\end{equation}
+
+\[
+A\equiv\left(\begin{array}{ccc}
+-r_1 & 0 & r_3 \\
+r_1 & -r_2 & 0\\
+0 & r_2 & -r_3 \end{array}\right) \quad\quad
+\vec{x}_0\equiv\left(\begin{array}{c}
+x_1^0\\x_2^0\\x_3^0\end{array}\right) \quad\quad
+\vec{r}\equiv\left(\begin{array}{c}
+r_1\\r_2\\r_3\end{array}\right)
+\]
+\bigskip
+
+It is an isolated system, no "mass" sources or sinks being involved
+(i.e. the system is homogeneous).
+\goodbreak A graphical representation of the system is sketched below.
+Each arrow is directed with the "mass" flow and it is labeled with
+the transfer rate from the originating variable to the next one.
+
+\begin{figure}[h]\label{fig:fig7}
+ \begin{center}
+   \includegraphics[width=1.5in]{fig7}\\
+ \end{center}
+ \caption{Isolated three-variables unidirectional closed chain.}
+\end{figure}
+
+This model has no obvious physical significance, indeed we
+investigate such a system just for the pleasure to do it.
+\goodbreak Note that
+
+\[
+\dot{x}_1+\dot{x}_2+\dot{x}_3=0\\
+\]
+
+This holds because the system is an isolated system, and this
+implies that the scalar quantity
+
+\[
+\E\equiv x_1+x_2+x_3=x_1^0+x_2^0+x_3^0=const.\\
+\]
+
+it is a time invariant. Without any forcing terms into the equations
+we're sure the system will stay bounded all the time. i.e it is
+asintotically stable for $t\rightarrow +\infty$.
+
+Also, we assume $r_i>0$. The matrix $A$ is nonsingular. To find
+the eigenvalues, let's solve the characteristic equation
+
+\[
+|A-\lambda I|=\left|\begin{array}{ccc}
+-r_1-\lambda & 0 & r_3 \\
+r_1 & -r_2-\lambda & 0\\
+0 & r_2 & -r_3-\lambda \end{array}\right| =
+-(\lambda+r_1)(\lambda+r_2)(\lambda+r_3)+r_1r_2r_3=0
+\]
+
+This gives
+
+\begin{equation}\label{e:eq10}
+\lambda\cdot[\lambda^2+\lambda(r_1+r_2+r_3)+r_1r_2+r_2r_3+r_3r_1]=0
+\end{equation}
+
+An eigenvalue is $\lambda_1=0$, while $\lambda_2$ and $\lambda_3$
+are the roots of the quadratic factor
+
+\[
+\lambda_{2,3}=\frac{-S\pm\sqrt{r_1^2+r_2^2+r_3^2-2P}}{2}\\
+\]
+
+with $S\equiv r_1+r_2+r_3$ and $P\equiv r_1r_2+r_2r_3+r_3r_1$. What
+about the sign of the quantity under square root? From the Schwartz
+inequality we know that
+
+\[
+r_1^2+r_2^2+r_3^2-P>0\\
+\]
+
+Nevertheless $\vec{r}=(r_1,r_2,r_3)$ can be chosen such that
+
+\[
+r_1^2+r_2^2+r_3^2-2P\leq0\\
+\]
+
+so any cases could take place. Just let's mention the following
+cases. When $\vec{r}=(\rho,\rho,\rho)$ the term under the square
+root is negative and $\lambda_{2,3}=\frac{-3\pm j\sqrt{3}}{2}\rho$.
+\goodbreak If two of the rates are equal to $\rho$ and the third
+rate is equal to $4\rho$, then $\lambda_2=\lambda_3=-3\rho$.
+\goodbreak Finally, if one of the rates is greater than twice the
+sum of the others, $\lambda_{2,3}$ are real and distinct - the
+last statement coming from the inequalities
+
+\[
+r_1^2+r_2^2+r_3^2\geq 2r_1r_2+r_3^2 > 2P\quad\Leftrightarrow\quad r_3^2 > 2P-2r_1r_2=2r_2r_3+2r_3r_1=2r_3(r_1+r_2)\\
+\]
+
+Note that the assumption $r_i>0$ is very important for the time
+evolution of the system. In fact it implies that, whether
+eigenvalues  $\lambda_{2,3}$ will be real or complex, their real
+part will have to be negative, so that the system not only is
+stable, but takes a constant value in the long term
+$t\rightarrow+\infty$, i.e.
+
+\begin{equation}\label{e:eq03}
+\lim_{t\rightarrow+\infty}\vec{x}(t)=\vec{x}_\infty=const.
+\end{equation}
+
+Now, in order to move toward an explicit solution we have to
+determine the eigenvectors by solving
+$(A-\lambda_iI)\vec{\eta}^{(i)}=0$.
+
+\subsection{Eigenvalue $\lambda_1=0$}
+\smallskip
+
+For the zero eigenvalue we have
+
+\bigskip
+\[
+\left(\begin{array}{ccc}
+-r_1 & 0 & r_3 \\
+r_1 & -r_2 & 0\\
+0 & r_2 & -r_3 \end{array}\right) \left(\begin{array}{c}
+\eta_1^{(1)}\\
+\eta_2^{(1)}\\
+\eta_3^{(1)}\end{array}\right) = \vec{0}\quad\quad\Rightarrow
+\vec{\eta}^{(1)} = \left(\begin{array}{c}
+\frac{r_3}{r_1}\\\frac{r_3}{r_2}\\1\end{array}\right)
+\]
+\bigskip
+
+This eigenvector plays an important role because it is associated
+with the steady state value of the system trajectory,
+$\vec{x}_\infty$, as we'll see in the next paragraph.
+
+\subsection{$\lambda_{2,3}$ real and distinct eigenvalues}
+\smallskip
+
+\goodbreak For real and distinct eigenvalues $\lambda_{2,3}$ the general solution is
+
+\begin{equation}\label{e:eq04}
+\vec{x}(t)=C_1\vec{\eta}^{(1)}+C_2e^{\lambda_2t}\vec{\eta}^{(2)}+C_3e^{\lambda_3t}\vec{\eta}^{(3)}\\
+\end{equation}
+
+We have
+
+\bigskip
+\[
+\left(\begin{array}{ccc}
+-r_1-\lambda_{2,3} & 0 & r_3 \\
+r_1 & -r_2-\lambda_{2,3} & 0\\
+0 & r_2 & -r_3-\lambda_{2,3} \end{array}\right)
+\left(\begin{array}{c}
+\eta_1^{(2,3)}\\
+\eta_2^{(2,3)}\\
+\eta_3^{(2,3)}\end{array}\right) = \vec{0}\quad\quad\Rightarrow
+\vec{\eta}^{(2,3)} = \left(\begin{array}{c}
+r_3\\\frac{r_1r_3}{r_2+\lambda_{2,3}}\\r_1+\lambda_{2,3}\end{array}\right)
+\]
+\bigskip
+
+To make things easier, let's consider the special case
+$\vec{r}=(\rho,\tfrac{1}{6}\rho,\tfrac{1}{3}\rho)$,
+$\vec{x}_0=(x_0,0,0)$, so that $\lambda_2=-\frac{2}{3}\rho$ and
+$\lambda_3=-\frac{5}{6}\rho$. Using this assumptions the eigenvector
+associated with the zero eigenvalue becomes
+
+\[
+\vec{\eta}^{(1)} = \left(\begin{array}{c}
+1\\6\\3\end{array}\right)
+\]
+
+\goodbreak For eigenvalue $\lambda_2=-\frac{2}{3}\rho$ we have
+
+\bigskip
+\[
+\vec{\eta}^{(2)} = \left(\begin{array}{c}
+1\\-2\\1\end{array}\right)
+\]
+\bigskip
+
+\goodbreak For eigenvalue $\lambda_3=-\frac{5}{6}\rho$
+
+\bigskip
+\[
+\vec{\eta}^{(3)} = \left(\begin{array}{c}
+2\\-3\\1\end{array}\right)
+\]
+\bigskip
+
+Constants $C_i$ have to be determined by imposing the initial
+conditions
+
+\bigskip
+\[
+C_1\left(\begin{array}{c} 1\\6\\3\end{array}\right)
+ + C_2\left(\begin{array}{c}
+1\\-2\\1\end{array}\right) + C_3\left(\begin{array}{c}
+2\\-3\\1\end{array}\right) = \left(
+\begin{array}{c} x_1^0\\0\\0\end{array}\right)
+\]
+\bigskip
+
+We get $C_1=\frac{1}{10}x_1^0$, $C_2=-\frac{3}{2}x_1^0$,
+$C_3=\frac{6}{5}x_1^0$. The solution is
+
+\bigskip
+\[
+\left\{\begin{array}{l}
+x_1(t)=\frac{x_1^0}{10}(1-15e^{-\frac{2\rho t}{3}}+24e^{-\frac{5\rho t}{6}})\\\\
+x_2(t)=\frac{x_1^0}{5}(3+15e^{-\frac{2\rho t}{3}}-18e^{-\frac{5\rho t}{6}})\\\\
+x_3(t)=\frac{x_1^0}{10}(3-15e^{-\frac{2\rho t}{3}}+12e^{-\frac{5\rho t}{6}})\\\\
+\end{array}\right.
+\]
+
+The picture below shows how all the quantities vary in time
+($\rho=1$).
+
+\begin{figure}[h]\label{fig:fig3}
+ \begin{center}
+   \includegraphics[width=3in]{fig3}\\
+ \end{center}
+ \caption{Time course for the three system components with real and distinct eigenvalues ($\tau_1=\tfrac{1}{3}; \tau_2=2; \tau_3=1$).}
+\end{figure}
+
+For generic initial conditions we would have had
+$C_1=\tfrac{1}{10}(x_1^0+x_2^0+x_3^0)$,
+$C_2=\tfrac{1}{4}(-3x_1^0-x_2^0+3x_3^0)$,
+$C_3=\tfrac{1}{5}(6x_1^0+x_2^0-4x_3^0)$. It's worth to note that the
+coefficient related with the zero eigenvalue is proportional to
+$\E$. The same held in the atomic decay model discussed above. In
+our example the steady state constant is
+
+\begin{equation}
+\vec{x}_\infty=C_1\vec{\eta}^{(1)}=\frac{\E}{10}\left(\begin{array}{c}
+1\\
+6\\
+3\end{array}\right)
+\end{equation}
+
+%The next picture shows the long term values $x_i^\infty$ normalized
+%to $\E$.
+%\begin{figure}[h]\label{fig:fig6}
+% \begin{center}
+%   \includegraphics[width=3in]{fig6}\\
+% \end{center}
+% \caption{The long term "mass" content of the three variables.}
+%\end{figure}
+
+
+\bigskip
+\newpage
+\subsection{$\lambda_{2,3}$ complex eigenvalues}
+\smallskip
+
+\goodbreak For complex eigenvalue $\lambda_2=\alpha+j\beta$ we have
+
+\bigskip
+\[
+\left(\begin{array}{ccc}
+-r_1-\alpha-j\beta & 0 & r_3 \\
+r_1 & -r_2-\alpha-j\beta & 0\\
+0 & r_2 & -r_3-\alpha-j\beta \end{array}\right)
+\left(\begin{array}{c}
+\eta_{1R}+j\eta_{1I}\\
+\eta_{2R}+j\eta_{2I}\\
+\eta_{3R}+j\eta_{3I}\end{array}\right)
+\]
+\bigskip
+
+This is equivalent to solve the real system
+
+\bigskip
+\[
+\left(\begin{array}{cccccc}
+-\alpha_1 & \beta & 0 & 0 & r_3 & 0\\
+\beta & \alpha_1 & 0 & 0 & 0 & -r_3\\
+r_1 & 0 & -\alpha_2 & \beta & 0 & 0\\
+0 & -r_1 & \beta & \alpha_2 & 0 & 0\\
+0 & 0 & r_2 & 0 & -\alpha_3 & \beta\\
+0 & 0 & 0 & -r_2 & \beta & \alpha_3\\
+\end{array}\right)
+\left(\begin{array}{c}
+\eta_{1R}\\
+\eta_{1I}\\
+\eta_{2R}\\
+\eta_{2I}\\
+\eta_{3R}\\
+\eta_{3I}\end{array}\right)=\vec{0}
+\]
+\bigskip
+
+where $\alpha_i\equiv r_i+\alpha$. \goodbreak But let's consider the
+special case $\vec{r}=(\rho,\rho,\rho)$, so that
+$\lambda=\frac{-3\pm j\sqrt{3}}{2}\rho$.
+\goodbreak With this assumption the eigenvector coupled with the zero eigenvalue
+becomes
+
+\[
+\vec{\eta}^{(1)} = \left(\begin{array}{c}
+1\\1\\1\end{array}\right)
+\]
+
+\goodbreak For eigenvalue $\lambda_2=\frac{-3+j\sqrt{3}}{2}\rho$
+
+\[
+\left(\begin{array}{ccc}
+\tfrac{1-j\sqrt{3}}{2}\rho & 0 & \rho \\
+\rho & \tfrac{1-j\sqrt{3}}{2}\rho & 0\\
+0 & \rho & \tfrac{1-j\sqrt{3}}{2}\rho
+\end{array}\right) \left(\begin{array}{c}
+\eta_{1R}+j\eta_{1I}\\
+\eta_{2R}+j\eta_{2I}\\
+\eta_{3R}+j\eta_{3I}\end{array}\right) =
+\vec{0}\quad\quad\Rightarrow \vec{\eta}^{(2)} =
+\left(\begin{array}{c}
+1\\-\tfrac{1+j\sqrt{3}}{2}\\-\tfrac{1-j\sqrt{3}}{2}\end{array}\right)
+\]
+
+We know that $\lambda_3=\lambda_2^*$ and
+$\vec{\eta}^{(3)}=(\vec{\eta}^{(2)})^*$.
+From the initial conditions
+
+\bigskip
+\[
+C_1\left(\begin{array}{c} 1\\1\\1\end{array}\right)
+ + C_2\left(\begin{array}{c}
+1\\-\tfrac{1+j\sqrt{3}}{2}\\-\tfrac{1-j\sqrt{3}}{2}\end{array}\right)
++ C_3\left(\begin{array}{c}
+1\\-\tfrac{1-j\sqrt{3}}{2}\\-\tfrac{1+j\sqrt{3}}{2}\end{array}\right)
+= \left( \begin{array}{c} x_1^0\\0\\0\end{array}\right)
+\]
+\bigskip
+
+and we obtain $C_1=C_2=C_3=\frac{x_1^0}{3}$. The solution is
+
+\bigskip
+\[
+\vec{x}(t)= \tfrac{x_1^0}{3}\left(\begin{array}{c}
+1\\1\\1\end{array}\right)
+ + \tfrac{x_1^0}{3}\left(\begin{array}{c}
+1\\-\tfrac{1+j\sqrt{3}}{2}\\-\tfrac{1-j\sqrt{3}}{2}\end{array}\right)e^{\frac{-3+j\sqrt{3}}{2}\rho
+t}
+ + \tfrac{x_1^0}{3}\left(\begin{array}{c}
+1\\-\tfrac{1-j\sqrt{3}}{2}\\-\tfrac{1+j\sqrt{3}}{2}\end{array}\right)e^{\frac{-3-j\sqrt{3}}{2}\rho
+t}
+\]
+\bigskip
+
+or
+
+\bigskip
+\[
+\left\{\begin{array}{l}
+x_1(t)=\frac{x_1^0}{3}(1+2e^{-\frac{3\rho t}{2}}\cos\frac{\sqrt{3}\rho t}{2})\\\\
+x_2(t)=\frac{x_1^0}{3}(1+\sqrt{3}e^{-\frac{3\rho t}{2}}\sin\frac{\sqrt{3}\rho t}{2}-e^{-\frac{3\rho t}{2}}\cos\frac{\sqrt{3}\rho t}{2})\\\\
+x_3(t)=\frac{x_1^0}{3}(1-\sqrt{3}e^{-\frac{3\rho t}{2}}\sin\frac{\sqrt{3}\rho t}{2}-e^{-\frac{3\rho t}{2}}\cos\frac{\sqrt{3}\rho t}{2})\\
+\end{array}\right.
+\]
+\bigskip
+
+The picture below shows how all the quantities vary in time, with
+$\tau_1=\tau_2=\tau_3=1$.
+
+\begin{figure}[h]\label{fig:fig4}
+ \begin{center}
+   \includegraphics[width=3in]{fig4}\\
+ \end{center}
+ \caption{Time course for the three system components with two complex eigenvalues ($\tau_1=\tau_2=\tau_3=1$).}
+\end{figure}
+
+\newpage
+\subsection{$\lambda_{2,3}$ real and equal eigenvalues}
+\smallskip
+
+Let's consider the special case $\vec{r}=(\rho,\rho,4\rho)$. In this
+case $\lambda_2=\lambda_3=-3\rho\equiv\lambda$. Now the eigenvector
+associated with the zero eigenvalue is
+
+\[
+\vec{\eta}^{(1)} = \left(\begin{array}{c}
+4\\4\\1\end{array}\right)
+\]
+
+From linear algebra we know that the double eigenvalue $\lambda$
+can have one or two independent eigenvectors. In this case it has
+only one
+
+\bigskip
+\[
+\left(\begin{array}{ccc}
+2\rho & 0 & 4\rho\\
+\rho & 2\rho & 0\\
+0 & \rho & -\rho \end{array}\right) \left(\begin{array}{c}
+\eta_1\\
+\eta_2\\
+\eta_3\end{array}\right) = \vec{0}\quad\quad\Rightarrow \vec{\eta}
+= \left(\begin{array}{c} -2\\1\\1\end{array}\right)
+\]
+\bigskip
+
+With these two only independent vectors we cannot fit the solution
+with the initial conditions. In fact, we need to introduce an
+auxiliary constant vector $\vec{\theta}$ into the the general
+solution
+
+\begin{equation}\label{e:eq05}
+\vec{x}(t)=C_1\vec{\eta}^{(1)}+C_2e^{\lambda t}\vec{\eta}+C_3e^{\lambda t}(t\vec{\eta}+\vec{\theta})\\
+\end{equation}
+
+Replacing the above expression in the equation
+$\dot{\vec{x}}=A\vec{x}$, with simple matrix algebra we find that
+$\vec{\theta}$ must satisfy $(A-I\lambda)\vec{\theta}=\vec{\eta}$.
+After some calculation we arrive at
+
+\[
+\vec{\theta} = \left(\begin{array}{c} -1\\1\\0\end{array}\right)
+\]
+
+Using the initial conditions, $C_1=\frac{x_1^0}{9}$,
+$C_2=-\frac{x_1^0}{9}$, $C_3=-\frac{x_1^0}{3}$. The final solution
+is
+
+\bigskip
+\[
+\left\{\begin{array}{l}
+x_1(t)=\frac{x_1^0}{9}[4+e^{-3\rho t}(6t+5)]\\\\
+x_2(t)=\frac{x_1^0}{9}[4-e^{-3\rho t}(3t+4)]\\\\
+x_3(t)=\frac{x_1^0}{9}(1-4e^{-3\rho t})\\\\
+\end{array}\right.
+\]
+\bigskip
+
+The picture below shows how all the quantities vary in time, with
+$\tau_1=\tau_2=1$, $\tau_3=\frac{1}{4}$.
+
+\begin{figure}[h]\label{fig:fig5}
+ \begin{center}
+   \includegraphics[width=3in]{fig5}\\
+ \end{center}
+ \caption{Time course for the three system components with two complex eigenvalues ($\tau_1=\tau_2=\tau_3=1$).}
+\end{figure}
+
+
+
+\newpage
+\section{Nonhomogeneous systems}
+\smallskip
+
+Now we may ask what would happen if forcing functions were
+introduced into the system. In order to simplify calculations we
+consider a two variables (i.e. a second order) system. After a quick
+derivation of the homogeneous solution we will find the Green
+function kernel, with which the reader is assumed to be familiar,
+and get the particular solution for a couple of examples.
+
+\bigskip
+\subsection{Two variables - homogeneous}
+\smallskip
+
+\bigskip
+\[
+\left\{\begin{array}{l}
+\dot{x}_1=r_2x_2-r_1x_1\\
+\dot{x}_2=r_1x_1-r_2x_2\\
+\end{array}\right.
+\]
+
+or, in matrix notation,
+
+\begin{equation}\label{e:eq06}
+\dot{\vec{x}}(t)=A\vec{x}(t) \quad\quad t>0; \quad\quad \vec{x}(0)=\vec{x}_0 \\
+\end{equation}
+
+\[
+A\equiv\left(\begin{array}{cc}
+-r_1 & r_2 \\
+r_1 & -r_2\end{array}\right) \quad\quad
+\vec{x}_0\equiv\left(\begin{array}{c} x_1^0\\x_2^0\end{array}\right)
+\]
+\bigskip
+
+To find the eigenvalues, let's solve the characteristic equation
+
+\[
+|A-\lambda I|= (\lambda+r_1)(\lambda+r_2)-r_1r_2=0
+\]
+
+Eigenvalues are $\lambda_1=0$ and
+$\lambda_2=-(r_1+r_2)\equiv\lambda$. The general solution is
+
+\begin{equation}\label{e:eq07}
+\vec{x}(t)=C_1\vec{\eta}^{(1)}+C_2e^{\lambda t}\vec{\eta}^{(2)}\\
+\end{equation}
+
+Now, in order to move toward an explicit solution we have to
+determine the eigenvectors by solving
+$(A-\lambda_iI)\vec{\eta}^{(i)}=0$.
+
+\bigskip
+\[
+\left(\begin{array}{cc}
+-r_1 & r_2\\
+r_1 & -r_2\end{array}\right) \left(\begin{array}{c}
+\eta_1^{(1)}\\
+\eta_2^{(1)}\end{array}\right) = \vec{0}\quad\quad\Rightarrow
+\vec{\eta}^{(1)} = \left(\begin{array}{c}
+\frac{r_2}{r_1}\\1\end{array}\right)
+\]
+\bigskip
+
+\bigskip
+\[
+\left(\begin{array}{cc}
+r_2 & r_2\\
+r_1 & r_1\end{array}\right) \left(\begin{array}{c}
+\eta_1^{(2)}\\
+\eta_2^{(2)}\end{array}\right) = \vec{0}\quad\quad\Rightarrow
+\vec{\eta}^{(2)} = \left(\begin{array}{c} 1\\-1\end{array}\right)
+\]
+\bigskip
+
+Constants $C_i$ have to be determined by imposing the initial
+conditions
+
+\bigskip
+\[
+C_1\left(\begin{array}{c} \tfrac{r_2}{r_1}\\1\end{array}\right)
+ + C_2\left(\begin{array}{c}
+1\\-1\end{array}\right) = \left(
+\begin{array}{c} x_1^0\\x_2^0\end{array}\right)
+\]
+\bigskip
+
+We get $C_1=\frac{r_1(x_1^0+x_2^0)}{r_1+r_2}$,
+$C_2=\frac{r_1x_1^0-r_2x_2^0}{r_1+r_2}$. The solution is
+
+\bigskip
+\[
+\left\{\begin{array}{l}
+x_1(t)=\frac{r_2(x_1^0+x_2^0)}{r_1+r_2}+\frac{r_1x_1^0-r_2x_2^0}{r_1+r_2}e^{\lambda t}\\\\
+x_2(t)=\frac{r_1(x_1^0+x_2^0)}{r_1+r_2}-\frac{r_1x_1^0-r_2x_2^0}{r_1+r_2}e^{\lambda t}\\\\
+\end{array}\right.
+\]
+
+\begin{figure}[h]\label{fig:fig10}
+ \begin{center}
+   \includegraphics[width=4in]{fig10}\\
+ \end{center}
+ \caption{Time course for the two system's components.}
+\end{figure}
+
+
+\bigskip
+\subsection{Two variables - nonhomogeneous}
+\smallskip
+Now the system looks like
+
+\[
+\left\{\begin{array}{l}
+\dot{x}_1=r_2x_2-r_1x_1+f_1\\
+\dot{x}_2=r_1x_1-r_2x_2+f_2\\
+\end{array}\right.
+\]
+
+where $f_i(t)\in C^1[0,+\infty)$ are the forcing functions. Taking
+the derivative of the first equation and using
+$\dot{x}_1+\dot{x}_2=f_1+f_2$ we obtain the equivalent second order
+nonhomogeneous ODE with nonhomogeneous (i.e. non zero) BCs
+
+\[
+\left\{\begin{array}{l}
+\ddot{x}_1-\lambda\dot{x}_1=g(t)\quad\quad 0\leq t<+\infty\\
+x_1(0)=x_1^0\\
+\dot{x}_1(0)=r_2x_2^0-r_1x_1^0\equiv K
+\end{array}\right.
+\]
+
+where $\lambda\equiv -r_1-r_2$ and $g\equiv
+r_2(f_1+f_2)+\dot{f}_1$. This is called a Cauchy problem (or
+Initial Value Problem), the solution to which is assumed to have
+the form
+
+\begin{equation}\label{e:eq001}
+x_1(t)=x_1^{(o)}+x_1^{(p)}\\
+\end{equation}
+
+where $x_1^{(o)}$ is the solution to the homogeneous problem
+($g(t)\equiv 0$) with nonhomogeneous BCs, and $x_1^{(p)}$ is a
+particular solution to the nonhomogeneous problem with homogeneous
+(i.e. zero) BCs. From the previous paragraph we know that
+
+\begin{equation}\label{e:eq002}
+x_1^{(o)}=x_1^0+\frac{K}{\lambda}(e^{\lambda t}-1)\\
+\end{equation}
+
+\bigskip
+\subsubsection{Green Function method}
+\smallskip
+
+The Green function method serves to find $x_1^{(p)}$. The Green
+function $G(t,\xi)$ is an integral kernel and must satisfy the
+homogeneous equation for $t\neq\xi$, thus
+\[
+G(t,\xi)=\left\{\begin{array}{l}
+A_1(\xi)e^{\lambda t}+B_1(\xi) \ \ \ per \ t<\xi\\
+A_2(\xi)e^{\lambda t}+B_2(\xi) \ \ \ per \ t>\xi
+\end{array}\right.
+\]
+
+Following the standard procedure, we apply homogeneous BCs as well
+as continuity and jump conditions to $G(t,\xi)$ in order to get the
+unknown functions $A_1$, $B_1$, $A_2$ and $B_2$
+
+\begin{equation}\label{e:eq10}
+G(0,\xi)=0\quad\Rightarrow A_1(\xi)+B_1(\xi)=0\\
+\end{equation}
+\begin{equation}\label{e:eq11}
+\frac{\partial G}{\partial t}|_{t=0}=0\quad\Rightarrow A_1(\xi)=0\quad\Rightarrow B_1(\xi)=0\\
+\end{equation}
+\begin{equation}\label{e:eq12}
+G(\xi^+,\xi)-G(\xi^-,\xi)=0\quad\Rightarrow A_2(\xi)e^{\lambda\xi}+B_2(\xi)=0\\
+\end{equation}
+\begin{equation}\label{e:eq13}
+\frac{\partial G}{\partial t}|_{t=\xi^-}^{t=\xi^+}=1 \quad\Rightarrow A_2(\xi)=\frac{1}{\lambda}e^{-\lambda\xi}\quad\Rightarrow B_2(\xi)=-\frac{1}{\lambda}\\
+\end{equation}
+
+So
+
+\[
+G(t,\xi)=\left\{\begin{array}{l}
+0 \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ for \ t<\xi\\
+\frac{1}{\lambda}[e^{\lambda(t-\xi)}-1] \ \ \ for \ t\geq\xi
+\end{array}\right.
+\]
+
+Then, the particular solution for the nonhomogeneous system is
+
+\begin{equation}\label{e:eq08}
+x_1^{(p)}(t)=\int_{0}^{+\infty}G(t,\xi)g(\xi)d\xi= \tfrac{1}{\lambda}\int_{0}^{t}[e^{\lambda(t-\xi)}-1]g(\xi)d\xi\\
+\end{equation}
+
+The solution to the original Cauchy problem is
+
+\begin{equation}\label{e:eq08c}
+x_1(t)=x_1^0+\frac{K}{\lambda}(e^{\lambda t}-1)+\tfrac{1}{\lambda}\int_{0}^{t}[e^{\lambda(t-\xi)}-1]g(\xi)d\xi\\
+\end{equation}
+
+One can repeat exactly the same for the component $x_2(t)$ (the only
+change affects the integration constants in the homogeneous solution
+and the forcing function in the particular solution). Putting all
+together the final result is
+
+\bigskip
+\[
+\left\{\begin{array}{l}
+x_1(t)=\frac{r_2(x_1^0+x_2^0)}{r_1+r_2}+\frac{r_1x_1^0-r_2x_2^0}{r_1+r_2}e^{\lambda t}+\tfrac{1}{\lambda}\int_{0}^{t}[e^{\lambda(t-\xi)}-1][r_2(f_1(\xi)+f_2(\xi))+\dot{f}_1(\xi)]d\xi\\\\
+x_2(t)=\frac{r_1(x_1^0+x_2^0)}{r_1+r_2}-\frac{r_1x_1^0-r_2x_2^0}{r_1+r_2}e^{\lambda t}+\tfrac{1}{\lambda}\int_{0}^{t}[e^{\lambda(t-\xi)}-1][r_1(f_1(\xi)+f_2(\xi))+\dot{f}_2(\xi)]d\xi\\
+\end{array}\right.
+\]
+
+
+\bigskip
+\subsubsection{Variation of Parameters method}
+\smallskip
+
+An alternative method to find a particular solution to the second
+order nonhomogeneous equations is that of variation of parameters.
+Basically it consists in applying the formula
+
+\begin{equation}\label{e:eq08e}
+y^{(p)}(t)=-y_1(t)\int\frac{y_2(\xi)g(\xi)}{W(y_1,y_2)}d\xi+y_2(t)\int\frac{y_1(\xi)g(\xi)}{W(y_1,y_2)}d\xi\\
+\end{equation}
+
+where $y_1$ and $y_2$ represents a fundamental set of solutions for
+the homogeneous problem, and $W$ their Wronskian. For our problem we
+can put $y_1=e^{\lambda t}$ and $y_2=1$ (Do not worry about which of
+our two solutions is $y_1$ and which one is $y_2$. It doesn’t
+matter).
+
+\bigskip
+\[
+W(y_1,y_2)\equiv\left|\begin{array}{cc}
+y_1 & y_2\\
+\dot{y}_1 & \dot{y}_2\end{array}\right| =\left|\begin{array}{cc}
+e^{\lambda t} & 1\\
+\lambda e^{\lambda t} & 0\end{array}\right| =-\lambda e^{\lambda t}
+\]
+\bigskip
+Substitution in \ref{e:eq08e} and integration gives ($y=x_1$)
+
+\begin{equation}\label{e:eq08f}
+x_1^{(p)}(t)=\tfrac{1}{\lambda}\int_{0}^{t}[e^{\lambda(t-\xi)}-1]g(\xi)d\xi\\
+\end{equation}
+
+This coincides with the previously stated result. We now look at a
+series of examples.
+
+\newpage
+\subsection{Example I}
+\smallskip
+
+Let's take the example
+
+\[
+\left\{\begin{array}{l}
+f_1(t)=Du(t-t_0)\\
+f_2(t)=-Du(t-t_0)
+\end{array}\right.
+\]
+
+with $t_0>0$ and $t\geq0$. Here $u(t)$ denotes the unit (or
+Heaviside) step function. We have
+
+\[
+g(t)\equiv r_2(f_1+f_2)+\dot{f}_1=D\delta(t-t_0)\\
+\]
+
+\begin{align}
+x_1^{(p)}(t)=\tfrac{1}{\lambda}\int_{0}^{t}[e^{\lambda(t-\xi)}-1]D\delta(\xi-t_0)d\xi\\
+=\tfrac{D}{\lambda}[e^{\lambda(t-t_0)}-1]u(t-t_0)\\
+=-\tfrac{D}{r_1+r_2}[e^{-(r_1+r_2)(t-t_0)}-1]u(t-t_0)
+\end{align}
+
+\begin{figure}[h]\label{fig:fig8}
+ \begin{center}
+   \includegraphics[width=2.5in]{fig8}\\
+ \end{center}
+ \caption{Example I. The particular solution ($\lambda=-1,-2,-3; D=3$)}
+\end{figure}
+
+
+
+\newpage
+\subsection{Example II}
+\smallskip
+
+%Consider another example
+%\[
+%\left\{\begin{array}{l}
+%f_1(t)=D\sin(\omega t)\\
+%f_2(t)=0
+%\end{array}\right.
+%\]
+%We have
+%\[
+%g(t)=r_2D\sin(\omega t)+D\omega\cos(\omega t)\\
+%\]
+%\begin{align}
+%x_1(t)=\tfrac{D}{\lambda}\int_{0}^{t}[e^{\lambda(t-\xi)}-1][r_2\sin(\omega\xi)+\omega\cos(\omega\xi)]d\xi\\
+%=\tfrac{D}{\lambda}e^{\lambda t}[r_2I_1+\omega
+%I_2]_0^t-\tfrac{D}{\lambda}\int_{0}^{t}[r_2\sin(\omega\xi)+\omega\cos(\omega\xi)]d\xi\\
+%\end{align}
+%\[
+%I_1=\int e^{-\lambda\xi}\sin(\omega\xi)d\xi = -\frac{\lambda\sin(\omega\xi)+\omega\cos(\omega\xi)}{\lambda^2+\omega^2}e^{-\lambda\xi}\\
+%\]
+%\[
+%I_2=\int e^{-\lambda\xi}\cos(\omega\xi)d\xi = \frac{\omega\sin(\omega\xi)-\lambda\cos(\omega\xi)}{\lambda^2+\omega^2}e^{-\lambda\xi}\\
+%\]
+%\begin{equation}
+%x_1(t)=\tfrac{D}{\lambda(\lambda^2+\omega^2)}[(\omega^2-r_2\lambda)\sin(\omega
+%t)+\omega(\lambda+r_2)(e^{\lambda t}-1)\cos(\omega t)] - \tfrac{D}{\lambda\omega}[\sin(\omega t)+r_2(1-\cos(\omega t))]\\
+%\end{equation}
+
+Consider another example
+
+\[
+\left\{\begin{array}{l}
+f_1(t)=0\\
+f_2(t)=D\sin(\omega t)
+\end{array}\right.
+\]
+
+We have
+
+\[
+g(t)=r_2D\sin(\omega t)\\
+\]
+
+\begin{align}
+x_1(t)=\tfrac{D}{\lambda}\int_{0}^{t}[e^{\lambda(t-\xi)}-1]r_2\sin(\omega\xi)d\xi\\
+=\tfrac{r_2D}{\lambda}e^{\lambda
+t}[I_1]_0^t-\tfrac{r_2D}{\lambda}\int_{0}^{t}\sin(\omega\xi)d\xi
+\end{align}
+
+where
+
+\[
+I_1=\int e^{-\lambda\xi}\sin(\omega\xi)d\xi = -\frac{\lambda\sin(\omega\xi)+\omega\cos(\omega\xi)}{\lambda^2+\omega^2}e^{-\lambda\xi}\\
+\]
+
+By substitution we find
+
+\begin{equation}
+x_1^{(p)}(t)=\tfrac{r_2D}{\lambda(\lambda^2+\omega^2)}[\lambda\sin(\omega
+t)+\omega\cos(\omega t)-\omega e^{\lambda t}] - \tfrac{r_2D}{\lambda\omega}[1-\cos(\omega t)]\\
+\end{equation}
+
+\begin{figure}[h]\label{fig:fig9}
+ \begin{center}
+   \includegraphics[width=3in]{fig9}\\
+ \end{center}
+ \caption{Example II. The particular solution ($\lambda=-1,-2,-3;D=3$)}
+\end{figure}
+
+\newpage
+\section{Table of atomic decay chains}
+\smallskip
+
+\begin{figure}[h]\label{fig:fig11}
+ \begin{center}
+   \includegraphics[width=3in]{fig11}\\
+ \end{center}
+ \caption{Table of atomic decay chains.}
+\end{figure}
+
+% ------------------------------------------------------------------------
+%\subsection*{Ringraziamenti}
+%I miei ringraziamenti a ...
+% ------------------------------------------------------------------------
+% -------------------------------------------------------------------
+\end{document}
+% ------------------------------------------------------------------------
